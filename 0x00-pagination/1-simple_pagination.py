@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+""" module doc """
 import csv
 import math
 from typing import List, Tuple
@@ -9,6 +11,7 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
+        """ func doc """
         self.__dataset = None
 
     def dataset(self) -> List[List]:
