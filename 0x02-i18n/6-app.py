@@ -27,13 +27,13 @@ users = {
 def get_user() -> dict:
     """doc doc doc"""
     user_id = request.args.get("login_as")
-    if user_id is not None and int(user_id) in users:
+    if user_id and int(user_id) in users:
         return users[int(user_id)]
     return None
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
     """doc doc doc"""
     g.user = get_user()
 
@@ -43,7 +43,7 @@ def get_locale() -> str:
     """doc doc doc"""
     if request.args.get("locale") in app.config["LANGUAGES"]:
         return request.args.get("locale")
-    if g.user is not None:
+    if g.user and g.user.get("locale") in app.config["LANGUAGES"]:
         return g.user["locale"]
     return request.accept_languages.best_match(app.config["LANGUAGES"])
 
