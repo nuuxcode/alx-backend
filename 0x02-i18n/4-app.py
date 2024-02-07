@@ -19,7 +19,7 @@ babel = Babel(app)
 
 @babel.localeselector
 def get_locale() -> str:
-    """Determine the best match with our supported languages."""
+    """ doc doc doc """
     if request.args.get("locale") in app.config["LANGUAGES"]:
         return request.args.get("locale")
     return request.accept_languages.best_match(app.config["LANGUAGES"])
@@ -28,7 +28,7 @@ def get_locale() -> str:
 @app.route("/")
 def index() -> str:
     """doc doc doc"""
-    return render_template("3-index.html")
+    return render_template("4-index.html")
 
 
 if __name__ == "__main__":
